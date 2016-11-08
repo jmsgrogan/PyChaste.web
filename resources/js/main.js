@@ -22,7 +22,7 @@ function getOS() {
 $(document).ready(function(){
 
   // background image on frontpage
-  $(".splash").backstretch("{{ site.baseurl }}/resources/img/view-leman-opt2.jpg");
+  $(".splash").backstretch("{{ site.baseurl }}/resources/img/landing.png");
 
   // tooltips (front page)
   $(".marker").mouseover(function(){ $(".tip").show(); });
