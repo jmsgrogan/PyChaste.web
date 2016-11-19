@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Books
+title: Tutorials
 ---
 
 The number of books published about Scala is now large,

@@ -1,7 +1,49 @@
 ---
-layout: page
+layout: page-full-width
 title: Getting Started
 ---
+
+## About 
+Microvessel Chaste is a library for building simulations with discrete cells and vessels using either Python or C++. It is a plug-in for Chaste, which is a well-known library for agent based cell modelling. Microvessel Chaste comes with a Python interface, which is a low-level C++ wrapper, meaning the much of the functionality of the C++ interface is available and there is negligble performance loss. 
+
+Microvessel Chaste allows detailed multi-scale simulations to be constructed using a friedndly scripting interface, which can be immediately combinded with existing Python software for image processing, data analysis and plotting.
+
+This page gives an introduction to the Python interface, which is the recommended way to get started. If you just want a quick working demo you can jump to the [tutorials](), however you should check back here when troubleshooting.
+
+
+## Getting Started With Python
+Microvessel Chaste depends on PyChaste, which is a Python wrapper for the main Chaste library. The first thing to do when launching a Python session is to import the `chaste` module from PyChaste:
+
+    import chaste
+
+Sub-module naming follows the Chaste source directory layout, so you can use the [Chaste documentation](http://www.cs.ox.ac.uk/chaste/) for module name hints. We will mostly use the following modules:
+
+    from chaste import core
+    from chaste import mesh
+    from chaste import pde
+    from chaste import cell_based
+
+Chaste is designed to work with distributed memory parallelism using MPI (and PETSc). Even when you are running on one processor with most Chaste solvers it is neccessary to do:
+
+    chaste.init()
+
+to initialize MPI. Once `chaste` has been imported and initialized you can import `microvessel_chaste`:
+
+    import microvessel_chaste
+
+Again, module naming follows the source code [directory structure](), the modules we will use the most are:
+
+    import microvessel_chaste.geometry
+    import microvessel_chaste.population.vessel
+    import microvessel_chaste.pde
+    import microvessel_chaste.mesh
+    import microvessel_chaste.simulation
+
+
+
+
+
+
 
 The best way to learn Scala depends on what you know already and the way you prefer to learn things. There is a variety of resources available including [books]({{ site.baseurl }}/documentation/books.html), tutorials, training courses, presentations, and of course the Scala compiler for practice. Many people find a good combination is to have one of the Scala books at hand and to start right away trying the examples with the Scala compiler. On the other hand, you may want to get started with a Scala training course or using the material available online.
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Scala API Docs
+title: Python API Docs
 ---
 
 ## Latest releases
