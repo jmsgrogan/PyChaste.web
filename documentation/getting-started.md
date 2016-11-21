@@ -4,8 +4,6 @@ title: Getting Started
 ---
 
 ## About 
-Microvessel Chaste is a library for building simulations with discrete cells and vessels using either Python or C++. It is a plug-in for Chaste, which is a well-known library for agent based cell modelling. Microvessel Chaste comes with a Python interface, which is a low-level C++ wrapper, meaning the much of the functionality of the C++ interface is available and there is negligble performance loss. 
-
 Microvessel Chaste allows detailed multi-scale simulations to be constructed using a friedndly scripting interface, which can be immediately combinded with existing Python software for image processing, data analysis and plotting.
 
 This page gives an introduction to the Python interface, which is the recommended way to get started. If you just want a quick working demo you can jump to the [tutorials](), however you should check back here when troubleshooting.

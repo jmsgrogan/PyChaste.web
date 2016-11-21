@@ -30,7 +30,7 @@ title: Documentation
     </div>
     <div class="span4 doc-block">
       <h3><a href="{{ site.baseurl }}/documentation/gallery.html">Gallery</a></h3>
-      <p>Some images and movies of Microvessel Chaste simulations.</p>
+      <p>Some images and movies of PyChaste simulations.</p>
     </div>
   </div>
 </div>
