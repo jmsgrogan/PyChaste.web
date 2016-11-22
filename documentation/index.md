@@ -21,11 +21,11 @@ title: Documentation
 
   <div class="row">
     <div class="span4 doc-block">
-      <h3><a href="{{ site.baseurl }}/documentation/python-api.html">The Python API</a></h3>
+      <h3><a href="{{ site.baseurl }}/documentation/python-api/index.html">The Python API</a></h3>
       <p>Python API documentation.</p>
     </div>
     <div class="span4 doc-block">
-      <h3><a href="{{ site.baseurl }}/documentation/cpp-api.html">The C++ API</a></h3>
+      <h3><a href="https://chaste.cs.ox.ac.uk/public-docs/">The C++ API</a></h3>
       <p>C++ API documentation.</p>
     </div>
     <div class="span4 doc-block">

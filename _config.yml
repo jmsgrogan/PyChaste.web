@@ -4,6 +4,8 @@ scalaversion: "3.4.0"
 devscalaversion: ""
 
 baseurl: ""
-markdown: kramdown
+markdown: Redcarpet
+highlighter: rouge
 exclude: [bundle-vendor]
 future: true
+keep_files: [documentation/python-api]

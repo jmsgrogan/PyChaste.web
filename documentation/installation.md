@@ -3,40 +3,45 @@ layout: page-full-width
 title: Installation
 ---
 
-## Quickstart - Python
+## Linux
 
-### Linux
+### Conda Package
 
-The easiest way to get started is with [Anaconda](), which allows easy installation of a range of scientific Python packages in binary form.
-
-If you already have `conda` just do:
+The [conda](https://www.continuum.io/downloads) package is recommended. If you already have `conda` installed just do:
 
     conda config --add channels conda-forge
     conda config --add channels jmsgrogan
-    conda install microvessel-chaste
+    conda install chaste
 
-and you are ready to go. Run `microvessel-chaste notebooks` in a shell to see a selection of demo Jupyter notebooks in your web browser.
+You should then be able to do:
 
-To quickly install the neccessary  [Anaconda]() software you can do:
+    import chaste
 
-    wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
-    chmod 777 Miniconda2-latest-Linux-x86_64.sh
-    ./Miniconda2-latest-Linux-x86_64.sh
-    conda update conda
+in a python session. 
 
-and follow the install instructions.
+If you need to install `conda`, the [Miniconda](http://conda.pydata.org/miniconda.html) package will suffice. 
 
-TODO: Docker instructions
+### Docker
 
-### Windows/MacOS
+A Docker image is also available. This image will launch a Jupyter notebook at [htpp://localhost::8888](htpp://localhost::8888) in a web browser, which can be used to try out the package. If you already have docker installed do:
 
-It is best to use [Docker](), a lightweight container similar to a virtual machine, on these platforms. Install Docker according to the [instructions for your OS](https://docs.docker.com/).
+    docker pull jmsgrogan/pychaste
+    docker run -it -p 8888:8888 pychaste
 
-TODO: Instructions for adding docker channel and launching notebooks in browser.
+and go to the above link in your browser.
 
-## Build From Source (Linux) - C++ and Python
+To install Docker follow the [instructions here](https://docs.docker.com/).
 
-If you would like to start using or customizing the C++ solvers you need to build from source. This is reasonably straightforward.
+## Windows/MacOS
+
+### Docker
+
+Only Docker is supported on these platforms at the moment. Install Docker following the [instructions here](https://docs.docker.com/) and proceed as per the Linux Docker instructions above.
+
+
+## Build From Source (Linux Only)
+
+It is reasonably straightforward to build the package from source on Linux.
 
 First, Chaste dependencies need to be built following the [Chaste Install Guide](https://chaste.cs.ox.ac.uk/trac/wiki/InstallGuides/InstallGuide). 
 
@@ -46,30 +51,15 @@ The project only supports the development version of Chaste. This can be obtaine
 
 The project code itself can be obtained by doing: 
 
-    git clone https://github.com/jmsgrogan/MicrovesselChaste.git $MICROVESSEL_PROJECT_SOURCE_DIR
-
-The Microvessel project code needs to be included in the main Chaste source. This can be done with a symbolic link:
-
-    cd $CHASTE_SOURCE_DIR/projects
-    ln -s $MICROVESSEL_PROJECT_SOURCE_DIR
-
-The C++ libraries can be built using the [Chaste CMake build system](https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CmakeBuildGuide). First, create a build directory outside the source tree and proceed as:
-
-    cd $CHASTE_BUILD_DIR
-    cmake $CHASTE_SOURCE_DIR
-    make project_MicrovesselChaste -j $NUM_AVAILABLE_CPUS
-
-This will build the C++ library and all tests. To avoid building tests do:
-
-    make chaste_project_MicrovesselChaste -j $NUM_AVAILABLE_CPUS
-
-as the final command. The [Chaste CMake build system guide](https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CmakeBuildGuide) should be consulted for options related to generating optimized builds, running other types of test and installation as a system library.
-
-To build the Python library it is neccessary to first build [PyChaste](), a Python wrapper for Chaste. Do: 
-
     git clone https://github.com/jmsgrogan/PyChaste.git $PYCHASTE_PROJECT_SOURCE_DIR
+
+The wrapper code needs to be included in the main Chaste source. This can be done with a symbolic link:
+
     cd $CHASTE_SOURCE_DIR/projects
     ln -s $PYCHASTE_PROJECT_SOURCE_DIR
+
+The Python modules can be built using the [Chaste CMake build system](https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CmakeBuildGuide). First, create a build directory outside the source tree and proceed as:
+
     cd $CHASTE_BUILD_DIR
     cmake $CHASTE_SOURCE_DIR
     make chaste_project_PyChaste -j $NUM_AVAILABLE_CPUS
@@ -77,12 +67,13 @@ To build the Python library it is neccessary to first build [PyChaste](), a Pyth
     cd $CHASTE_BUILD_DIR/projects/PyChaste/python/chaste
     python setup.py install
 
-Similarly, for Microvessel Chaste do:
+You can then import `chaste` in a Python session.
 
-    cd $CHASTE_BUILD_DIR
-    make project_MicrovesselChaste_Python -j $NUM_AVAILABLE_CPUS
-    cd $CHASTE_BUILD_DIR/projects/MicrovesselChaste/python/microvessel-chaste
-    python setup.py install
+The [Chaste CMake build system guide](https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/CmakeBuildGuide) should be consulted for options related to generating optimized builds.
 
-You can then import `chaste` and `microvessel-chaste` in a Python session.
+## Troubleshooting
+
+* Missing Boost Python when building from source: If you are building from source you may need to install Boost Python in addition to the Chaste dependencies. Do `sudo apt-get install libboost-python-dev` on Ubuntu to obtain it.
+* Missing librt.so when loading conda package: this is a problem with the version of VTK in conda-forge. Make sure you have added the conda channels in the order above.
+* Missing liblapack.so when loading conda package: libatlas is needed on the system. Do `sudo apt-get install libatlas-base-dev` on Ubuntu.
 
