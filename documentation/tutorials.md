@@ -15,7 +15,7 @@ These tutorials demonstrate some applications of biological interest, but do not
 
 * [Simulating a Epithelial Sheet Tensile Test]({{ site.baseurl }}/documentation/tutorials/TestTensileTestTutorial.html)  - setting up a Vertex based cell population and using polymorphism for time varying boundary conditions. 
 
-* [Simulating Cell Sorting]({{ site.baseurl }}/documentation/tutorials/TestCellSorting.html)  - setting up a Potts based simulation and labelling cells.
+* [Simulating Cell Sorting]({{ site.baseurl }}/documentation/tutorials/TestCellSortingTutorial.html)  - setting up a Potts based simulation and labelling cells.
 
 
 ## Basic Simulations
