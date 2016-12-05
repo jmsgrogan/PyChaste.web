@@ -23,12 +23,17 @@ If you need to install `conda`, the [Miniconda](http://conda.pydata.org/minicond
 
 ### Docker
 
-A Docker image is also available. This image will launch a Jupyter notebook at [htpp://localhost::8888](htpp://localhost::8888) in a web browser, which can be used to try out the package. If you already have docker installed do:
+A Docker image is also available. This image will launch a Jupyter notebook at [http://localhost::8888](http://localhost::8888) in a web browser, which can be used to try out the package. If you already have docker installed do:
 
     docker pull jmsgrogan/pychaste
-    docker run -it -p 8888:8888 pychaste
+    docker run -it -p 8888:8888 jmsgrogan/pychaste
 
-and go to the above link in your browser.
+and go to the above link in your browser. Alternatively do:
+
+    docker pull jmsgrogan/pychaste
+    docker run -it jmsgrogan/pychaste /bin/bash
+
+to get access to the shell and launch Python yourself.
 
 To install Docker follow the [instructions here](https://docs.docker.com/).
 

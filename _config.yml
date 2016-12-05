@@ -3,7 +3,7 @@ title: PyChaste
 scalaversion: "3.4.0"
 devscalaversion: ""
 
-baseurl: ""
+baseurl: "https://jmsgrogan.github.io/PyChaste"
 markdown: Redcarpet
 highlighter: rouge
 exclude: [bundle-vendor]
